@@ -23,8 +23,6 @@ class XComposerAutoloaderInit
             return self::$loader;
         }
 
-        require __DIR__ . '/../../composer/platform_check.php';
-
         spl_autoload_register(array('XComposerAutoloaderInit', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Xua\XComposer\Autoload\XClassLoader(\dirname(\dirname(__FILE__)));
         spl_autoload_unregister(array('XComposerAutoloaderInit', 'loadClassLoader'));
