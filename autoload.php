@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 class XComposerAutoloaderInit
 {
@@ -24,7 +24,7 @@ class XComposerAutoloaderInit
         }
 
         spl_autoload_register(array('XComposerAutoloaderInit', 'loadClassLoader'), true, true);
-        self::$loader = $loader = new \Xua\XComposer\Autoload\XClassLoader(\dirname(\dirname(__FILE__)));
+        self::$loader = $loader = new \Xua\XComposer\Autoload\XClassLoader(\dirname(__FILE__, 2));
         spl_autoload_unregister(array('XComposerAutoloaderInit', 'loadClassLoader'));
 
         $useStaticLoader = PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION') && (!function_exists('zend_loader_file_encoded') || !zend_loader_file_encoded());
